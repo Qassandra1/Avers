@@ -1,13 +1,16 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&family=Playfair+Display&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Playfair+Display&display=swap');
 
-/* Base */
 body {
   margin: 0;
   padding: 0;
   font-family: 'Poppins', sans-serif;
-  background: radial-gradient(circle, #d6b38a 10%, #5a3d25 80%, #2a1a10 100%);
+  background: radial-gradient(circle, #d6b38a 0%, #5a3d25 80%, #2a1a10 100%);
   color: white;
   scroll-behavior: smooth;
+}
+
+h1, h2, h3 {
+  margin-bottom: 10px;
 }
 
 /* Header */
@@ -16,24 +19,24 @@ header {
   top: 0;
   width: 100%;
   padding: 10px 0;
-  background: rgba(0, 0, 0, 0.3);
-  backdrop-filter: blur(8px);
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(10px);
   z-index: 1000;
 }
 
 .logo {
   font-family: 'Playfair Display', serif;
-  font-size: 28px;
+  font-size: 26px;
   text-align: center;
-  margin: 0;
   color: white;
+  margin: 0;
 }
 
 nav ul {
   list-style: none;
   display: flex;
   justify-content: center;
-  gap: 20px;
+  gap: 25px;
   padding: 0;
   margin-top: 10px;
 }
@@ -47,113 +50,82 @@ nav a, #language-toggle {
   cursor: pointer;
 }
 
-/* Welcome */
+/* Welcome Block */
 #welcome {
-  position: relative;
-  height: 100vh;
-  overflow: hidden;
-}
-
-#welcome-video {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  top: 0;
-  left: 0;
-}
-
-.video-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0,0,0,0.6);
-}
-
-.overlay-content {
-  position: absolute;
-  z-index: 2;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  min-height: 60vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 80px 20px 60px;
+  background: transparent;
   text-align: center;
-  padding: 0 20px;
-  max-width: 90%;
 }
 
-.overlay-content h1 {
-  font-size: 2.5rem;
-  background: linear-gradient(to right, gold, white);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  animation: fadeInUp 1.5s ease-in-out;
+#welcome h2 {
+  font-size: 2.4rem;
+  font-weight: 600;
+  animation: fadeInUp 1s ease;
 }
 
-.overlay-content p {
+#welcome p {
   font-size: 1.2rem;
-  animation: fadeIn 2s ease-in-out;
+  margin-top: 15px;
+  max-width: 700px;
+  animation: fadeIn 2s ease;
 }
 
-.cta-button {
+.whatsapp-icon {
   display: inline-block;
-  background-color: gold;
-  color: black;
-  font-weight: bold;
-  padding: 12px 25px;
-  margin-top: 20px;
-  border-radius: 5px;
-  text-decoration: none;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background: url('img/whatsapp.png') no-repeat center center/contain;
+  width: 60px;
+  height: 60px;
+  margin-top: 30px;
 }
 
-.cta-button:hover {
-  transform: scale(1.05);
-  box-shadow: 0 0 12px rgba(255, 215, 0, 0.7);
-}
-
-/* Profile Section */
+/* Profile */
 .profile {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
-  gap: 20px;
+  gap: 30px;
   padding: 80px 20px 40px;
 }
 
 .profile img {
-  width: 250px;
+  width: 240px;
   border-radius: 0 40px 0 40px;
 }
 
 .profile .text {
   max-width: 600px;
   text-align: left;
-}/* Services */
-#services, #services-ar {
+}
+
+/* Services */
+#services {
   padding: 80px 20px;
   text-align: center;
 }
 
-#services img, #services-ar img {
+#services img {
   max-width: 100%;
-  border-radius: 12px;
-  margin-bottom: 20px;
+  border-radius: 10px;
+  margin-bottom: 25px;
 }
 
 /* Properties */
-.property, .property-ar {
+.property {
   margin: 60px auto;
   max-width: 1000px;
   padding: 0 20px;
+  text-align: left;
 }
 
-.property h3,
-.property-ar h3 {
-  font-size: 1.5rem;
-  margin-bottom: 15px;
+.property h3 {
+  font-size: 1.6rem;
+  margin-bottom: 10px;
 }
 
 .gallery {
@@ -184,27 +156,20 @@ nav a, #language-toggle {
   text-align: center;
 }
 
-#contact p, #contact a {
-  margin-bottom: 10px;
-  color: white;
-  text-decoration: none;
-}
-
-/* Map */
 #map iframe {
   width: 100%;
   height: 300px;
-  border-radius: 10px;
+  border-radius: 12px;
   border: none;
 }
 
 /* Buttons */
-.download-button, .whatsapp-button {
+.download-button {
   display: inline-block;
   background-color: gold;
   color: black;
   font-weight: bold;
-  padding: 10px 20px;
+  padding: 10px 22px;
   border-radius: 5px;
   text-decoration: none;
   margin-top: 10px;
@@ -212,12 +177,12 @@ nav a, #language-toggle {
   transition: 0.3s ease;
 }
 
-.download-button:hover, .whatsapp-button:hover {
+.download-button:hover {
   background-color: #e6c56e;
   transform: scale(1.05);
 }
 
-/* WhatsApp Floating Button */
+/* WhatsApp Floating */
 .whatsapp-float {
   position: fixed;
   bottom: 20px;
@@ -228,7 +193,7 @@ nav a, #language-toggle {
   background-size: cover;
   background-repeat: no-repeat;
   z-index: 999;
-  transition: transform 0.2s ease;
+  transition: transform 0.3s ease;
 }
 
 .whatsapp-float.vibrate {
@@ -240,6 +205,7 @@ footer {
   text-align: center;
   padding: 30px 10px;
   background: rgba(0,0,0,0.4);
+  font-size: 14px;
 }
 
 /* Animations */
@@ -260,7 +226,7 @@ footer {
 }
 
 @keyframes fadeInUp {
-  from { opacity: 0; transform: translateY(20px); }
+  from { opacity: 0; transform: translateY(30px); }
   to { opacity: 1; transform: translateY(0); }
 }
 
@@ -276,14 +242,15 @@ footer {
 @media (max-width: 768px) {
   .profile {
     flex-direction: column;
-  }
-
-  .overlay-content h1 {
-    font-size: 1.8rem;
+    text-align: center;
   }
 
   .gallery img {
     width: 180px;
     height: 120px;
+  }
+
+  #welcome h2 {
+    font-size: 1.8rem;
   }
 }
