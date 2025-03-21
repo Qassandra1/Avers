@@ -9,26 +9,20 @@ document.getElementById("language-toggle").addEventListener("click", () => {
   });
 });
 
-// Анимации появления блоков при скролле
+// Анимации появления
 const observer = new IntersectionObserver(entries => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
       entry.target.classList.add("fade-in-visible");
-      if (entry.target.classList.contains("fade-left")) {
-        entry.target.classList.add("fade-left-visible");
-      }
-      if (entry.target.classList.contains("fade-right")) {
-        entry.target.classList.add("fade-right-visible");
-      }
     }
   });
 }, { threshold: 0.1 });
 
-document.querySelectorAll(".fade-in, .fade-left, .fade-right").forEach(el => {
-  observer.observe(el);
+document.querySelectorAll("section").forEach(section => {
+  observer.observe(section);
 });
 
-// Вибрация иконки WhatsApp при первом скролле
+// Вибрация WhatsApp один раз при скролле
 let vibrated = false;
 window.addEventListener('scroll', () => {
   if (!vibrated) {
