@@ -1,4 +1,4 @@
-// Language toggle
+// Переключение языка EN / AR
 document.getElementById("language-toggle").addEventListener("click", () => {
   const lang = document.documentElement.lang === "en" ? "ar" : "en";
   document.documentElement.lang = lang;
@@ -9,20 +9,26 @@ document.getElementById("language-toggle").addEventListener("click", () => {
   });
 });
 
-// Animate sections on scroll
+// Анимации появления блоков при скролле
 const observer = new IntersectionObserver(entries => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
       entry.target.classList.add("fade-in-visible");
+      if (entry.target.classList.contains("fade-left")) {
+        entry.target.classList.add("fade-left-visible");
+      }
+      if (entry.target.classList.contains("fade-right")) {
+        entry.target.classList.add("fade-right-visible");
+      }
     }
   });
 }, { threshold: 0.1 });
 
-document.querySelectorAll("section").forEach(section => {
-  observer.observe(section);
+document.querySelectorAll(".fade-in, .fade-left, .fade-right").forEach(el => {
+  observer.observe(el);
 });
 
-// Vibrate WhatsApp icon on first scroll
+// Вибрация иконки WhatsApp при первом скролле
 let vibrated = false;
 window.addEventListener('scroll', () => {
   if (!vibrated) {
