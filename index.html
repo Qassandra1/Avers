@@ -1,165 +1,147 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Avers Real Estate LLC</title>
-  <link rel="stylesheet" href="styles.css" />
-  <script src="script.js" defer></script>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Avers Real Estate LLC</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
 </head>
 <body>
 
-<header>
-  <div class="container">
-    <h1 class="logo" style="font-family: 'Playfair Display', serif;">Avers Real Estate LLC</h1>
-    <nav>
-      <ul>
-        <li><a href="#why">Why Choose Us</a></li>
-        <li><a href="#services">Our Services</a></li>
-        <li><a href="#properties">Properties</a></li>
-        <li><a href="#contact">Contact</a></li>
-        <li><button id="language-toggle">EN | AR</button></li>
-      </ul>
-    </nav>
-  </div>
-</header>
+    <!-- Navigation Bar -->
+    <header>
+        <div class="container">
+            <h1 class="logo">Avers Real Estate LLC</h1>
+            <nav>
+                <ul>
+                    <li><a href="#why" data-en="Why Choose Us" data-ar="لماذا تختارنا">Why Choose Us</a></li>
+                    <li><a href="#services" data-en="Our Services" data-ar="خدماتنا">Our Services</a></li>
+                    <li><a href="#properties" data-en="Properties" data-ar="العقارات">Properties</a></li>
+                    <li><a href="#contact" data-en="Contact" data-ar="تواصل معنا">Contact</a></li>
+                    <li><button id="language-toggle">EN | AR</button></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
 
-<section id="welcome">
-  <div class="video-container">
-    <video autoplay muted loop id="welcome-video">
-      <source src="video.mp4" type="video/mp4" />
-      Your browser does not support the video tag.
-    </video>
-    <div class="video-overlay"></div>
-    <div class="overlay-content fade-in-up">
-      <h1 class="highlight-text">Invest in the UAE’s Best Real Estate Opportunities</h1>
-      <p>Our team specializes in the most profitable real estate investments, ensuring maximum returns and safety.</p>
-      <a href="https://wa.me/message/HSNLWGUIX5BXE1" class="cta-button">Get a Free Consultation</a>
-    </div>
-  </div>
-</section>
+    <!-- Welcome Section -->
+    <section id="welcome" class="fade-in">
+        <h2 data-en="Invest in the UAE’s Best Real Estate Opportunities" data-ar="استثمر في أفضل الفرص العقارية في الإمارات">
+            Invest in the UAE’s Best Real Estate Opportunities
+        </h2>
+        <p data-en="Our team specializes in some of the best real estate investment opportunities, providing our clients with the maximum possible returns while ensuring the safety of their capital."
+           data-ar="نحن متخصصون في أفضل فرص الاستثمار العقاري في الإمارات، مما يوفر لعملائنا أعلى العوائد الممكنة مع ضمان أمان رأس المال.">
+        </p>
+        <a href="https://wa.me/message/HSNLWGUIX5BXE1" class="whatsapp-icon" target="_blank"></a>
+    </section>
 
-<section id="why">
-  <div class="profile">
-    <img src="img/ksenia.jpg" alt="Ksenia Yakimova" />
-    <div class="text">
-      <h2>Why Choose Us</h2>
-      <p>Our owner, Ksenia Yakimova, has a background in economics and finance, as well as an MBA degree, and more than 10 years of experience in real estate in various countries. This allows us to develop a successful and long-term strategy for managing our clients' property. And our team consists of real professionals in their field.</p>
-    </div>
-  </div>
-</section>
+    <!-- Why Choose Us -->
+    <section id="why" class="fade-in">
+        <div class="profile">
+            <img src="img/ksenia.jpg" alt="Ksenia Yakimova">
+            <div class="text">
+                <h2 data-en="Why Choose Us" data-ar="لماذا تختارنا">Why Choose Us</h2>
+                <p data-en="Our owner, Ksenia Yakimova, has a background in economics and finance, as well as an MBA degree, and more than 10 years of experience in real estate in various countries. This allows us to develop a successful and long-term strategy for managing our clients' property. And our team consists of real professionals in their field."
+                   data-ar="تمتلك مالكتنا، كسينيا ياكيموفا، خلفية في الاقتصاد والتمويل بالإضافة إلى شهادة ماجستير في إدارة الأعمال، وأكثر من 10 سنوات من الخبرة في العقارات في مختلف البلدان. يتيح لنا تطوير استراتيجية ناجحة وطويلة الأمد لإدارة ممتلكات عملائنا، وفريقنا مكون من محترفين حقيقيين في هذا المجال.">
+                </p>
+            </div>
+        </div>
+    </section>
 
-<section id="why-ar" dir="rtl" class="profile-ar">
-  <div class="profile">
-    <img src="img/ksenia.jpg" alt="كسينيا ياكيموفا" />
-    <div class="text">
-      <h2>لماذا نحن؟</h2>
-      <p>المالكة، كسينيا ياكيموفا، لديها خلفية في الاقتصاد والمالية، بالإضافة إلى درجة ماجستير في إدارة الأعمال، وأكثر من عشر سنوات من الخبرة في مجال العقارات في دول متعددة. يتيح لنا ذلك تطوير استراتيجية طويلة الأجل لإدارة ممتلكات عملائنا. ويتكون فريقنا من محترفين حقيقيين في هذا المجال.</p>
-    </div>
-  </div>
-</section>
+    <!-- Our Services -->
+    <section id="services" class="fade-in">
+        <h2 data-en="Our Services" data-ar="خدماتنا">Our Services</h2>
+        <img src="img/services.jpg" alt="Real Estate Services">
+        <p data-en="Over the past 5 years, real estate investments in the United Arab Emirates have demonstrated the highest level of security and profitability. We collaborate with the most reputable and state-owned developers in this region and can provide our clients with the finest locations, accurate construction timelines without delays, and exceptional finishing quality."
+           data-ar="على مدى السنوات الخمس الماضية، أظهرت الاستثمارات العقارية في الإمارات العربية المتحدة أعلى مستويات الأمان والربحية. نحن نتعاون مع أكثر المطورين العقاريين شهرة والمملوكين للدولة في هذه المنطقة، ويمكننا توفير أفضل المواقع لعملائنا، مع جداول زمنية دقيقة للبناء بدون تأخير، وجودة تشطيب استثنائية.">
+        </p>
+    </section><!-- Featured Properties -->
+    <section id="properties" class="fade-in">
+        <h2 data-en="Featured Properties" data-ar="العقارات المميزة">Featured Properties</h2>
 
-<section id="services">
-  <h2>Our Services</h2>
-  <img src="img/services.jpg" alt="Our Services" />
-  <p>Over the past 5 years, real estate investments in the United Arab Emirates have demonstrated the highest level of security and profitability. We collaborate with the most reputable and state-owned developers in this region and can provide our clients with the finest locations, accurate construction timelines without delays, and exceptional finishing quality.</p>
-  <p>With each client, we consider their individual requirements and select a property that aligns with their strategy, selecting the best options available both in pre-existing units on the secondary market and in off-plan projects.</p>
-  <p>With us, you can create a real estate investment plan and get a free consultation. Our team will help you with this plan to buy, sell, or lease your property, as well as manage it throughout its entire lifecycle.</p>
-</section>
+        <!-- Manarat Living III -->
+        <div class="property">
+            <h3 data-en="Manarat Living III – Your Gateway to Luxury Investments" data-ar="مانارات ليفينج III – بوابتك للاستثمارات الفاخرة">
+                Manarat Living III – Your Gateway to Luxury Investments
+            </h3>
+            <div class="gallery">
+                <img src="img/manarat-1.jpg" alt="Manarat Living III">
+                <img src="img/manarat-2.jpg" alt="Manarat Living III">
+                <img src="img/manarat-3.jpg" alt="Manarat Living III">
+                <img src="img/manarat-4.jpg" alt="Manarat Living III">
+                <img src="img/manarat-5.jpg" alt="Manarat Living III">
+            </div>
+            <p data-en="The most profitable location in the world – Saadiyat Island, the Island of Happiness. A sea as pristine as the Maldives, with perfect beaches and an endless ocean breeze. Five world-class museums within walking distance, including the Louvre Abu Dhabi. Exquisite dining experiences, featuring several Michelin-starred restaurants. Investment opportunities starting from $270,000, offering high returns and exclusive benefits."
+               data-ar="الموقع الأكثر ربحية في العالم - جزيرة السعديات، جزيرة السعادة. بحر نقي كجزر المالديف، بشواطئ مثالية ونسيم المحيط اللامتناهي. خمسة متاحف عالمية المستوى على مسافة قريبة، بما في ذلك متحف اللوفر أبوظبي. تجارب طعام راقية، مع العديد من المطاعم الحاصلة على نجوم ميشلان. تبدأ فرص الاستثمار من 270,000 دولار، وتوفر عوائد عالية ومزايا حصرية.">
+            </p>
+            <a href="files/brochure.pdf" class="download-button" data-en="Download Brochure" data-ar="تحميل الكتيب">Download Brochure</a>
+        </div>
 
-<section id="services-ar" dir="rtl">
-  <h2>خدماتنا</h2>
-  <img src="img/services.jpg" alt="خدماتنا" />
-  <p>خلال السنوات الخمس الماضية، أثبتت الاستثمارات العقارية في الإمارات أعلى مستويات الأمان والربحية. نحن نتعاون مع مطورين موثوقين ومرموقين في المنطقة ونوفر لعملائنا أفضل المواقع، والجداول الزمنية الدقيقة بدون تأخير، وجودة تشطيب استثنائية.</p>
-  <p>نحن ندرس متطلبات كل عميل على حدة ونساعده في اختيار العقار الذي يتماشى مع استراتيجيته، سواء في السوق الثانوية أو مشاريع الخطة (Off-plan).</p>
-  <p>معنا، يمكنك إعداد خطة استثمار عقاري والحصول على استشارة مجانية. سنساعدك في شراء أو بيع أو تأجير العقار، وكذلك في إدارته طوال دورة حياته.</p>
-</section><section id="properties">
-  <h2>Featured Properties</h2>
+        <!-- Sama Yas -->
+        <div class="property">
+            <h3 data-en="Sama Yas – The Greenest Luxury in the UAE" data-ar="سما ياس – الفخامة الأكثر خضرة في الإمارات">
+                Sama Yas – The Greenest Luxury in the UAE
+            </h3>
+            <div class="gallery">
+                <img src="img/sama-1.jpg" alt="Sama Yas">
+                <img src="img/sama-2.jpg" alt="Sama Yas">
+                <img src="img/sama-3.jpg" alt="Sama Yas">
+            </div>
+            <p data-en="Located in the most vibrant and entertainment-packed district of the Emirates, Sama Yas offers an exclusive lifestyle at an exceptional value."
+               data-ar="تقع سما ياس في أكثر مناطق الإمارات حيوية وغنية بالترفيه، وتقدم نمط حياة حصريًا بقيمة استثنائية.">
+            </p>
+            <a href="files/brochure.pdf" class="download-button" data-en="Download Brochure" data-ar="تحميل الكتيب">Download Brochure</a>
+        </div>
 
-  <!-- Manarat Living III -->
-  <div class="property">
-    <h3>Manarat Living III</h3>
-    <div class="gallery">
-      <img src="img/manarat-1.jpg" />
-      <img src="img/manarat-2.jpg" />
-      <img src="img/manarat-3.jpg" />
-      <img src="img/manarat-4.jpg" />
-      <img src="img/manarat-5.jpg" />
-    </div>
-    <p>The most profitable location in the world – Saadiyat Island, the Island of Happiness. A sea as pristine as the Maldives, with perfect beaches and an endless ocean breeze. Five world-class museums within walking distance, including the Louvre Abu Dhabi. Exquisite dining experiences, featuring several Michelin-starred restaurants. Investment opportunities starting from $270,000, offering high returns and exclusive benefits.</p>
-    <a href="brochure.pdf" class="download-button">Download Brochure</a>
-  </div>
+        <!-- Athlon Villas -->
+        <div class="property">
+            <h3 data-en="Athlon Villas – Exclusive Growth in Dubai" data-ar="أثلون فيلاز – النمو الحصري في دبي">
+                Athlon Villas – Exclusive Growth in Dubai
+            </h3>
+            <div class="gallery">
+                <img src="img/athlon-1.jpg" alt="Athlon Villas">
+                <img src="img/athlon-2.jpg" alt="Athlon Villas">
+                <img src="img/athlon-3.jpg" alt="Athlon Villas">
+                <img src="img/athlon-4.jpg" alt="Athlon Villas">
+                <img src="img/athlon-5.jpg" alt="Athlon Villas">
+                <img src="img/athlon-6.jpg" alt="Athlon Villas">
+                <img src="img/athlon-7.jpg" alt="Athlon Villas">
+            </div>
+            <p data-en="Athlon Villas represent one of the most profitable and in-demand investment opportunities in Dubai. Villas in Dubai consistently show the highest price appreciation due to limited availability and growing demand."
+               data-ar="تمثل فيلات أثلون واحدة من أكثر فرص الاستثمار ربحية وطلبًا في دبي. تشهد الفيلات في دبي نموًا كبيرًا في الأسعار بسبب توفرها المحدود وزيادة الطلب.">
+            </p>
+            <a href="files/brochure.pdf" class="download-button" data-en="Download Brochure" data-ar="تحميل الكتيب">Download Brochure</a>
+        </div>
+    </section>
 
-  <div class="property-ar" dir="rtl">
-    <h3>مانارات ليفينغ III</h3>
-    <p>أفضل موقع استثماري في العالم – جزيرة السعديات، جزيرة السعادة. بحر نقي كجزر المالديف، شواطئ مثالية ونسيم دائم. خمس متاحف عالمية على بعد خطوات، بما في ذلك متحف اللوفر أبوظبي. تجارب طعام راقية تتضمن مطاعم حائزة على نجمة ميشلان. تبدأ الفرص الاستثمارية من 270,000 دولار، وتوفر عوائد مرتفعة ومزايا حصرية.</p>
-  </div>
+    <!-- Contact Section -->
+    <section id="contact" class="fade-in">
+        <h2 data-en="Contact Us" data-ar="تواصل معنا">Contact Us</h2>
+        <p data-en="Dubai, Internet City, Al Salam Tower, 3106" data-ar="دبي، مدينة الإنترنت، برج السلام، 3106">
+        </p>
+        <p><a href="tel:+971045751275" data-en="Phone: +971 045751275" data-ar="هاتف: +971 045751275">+971 045751275</a></p>
+        <p data-en="License No.: 1177471" data-ar="رقم الرخصة: 1177471">License No.: 1177471</p>
+        <p data-en="Trade Name: AVERS REAL ESTATE L.L.C" data-ar="الاسم التجاري: AVERS REAL ESTATE L.L.C">Trade Name: AVERS REAL ESTATE L.L.C</p>
+        <p data-en="Registration No.: 2051604" data-ar="رقم التسجيل: 2051604">Registration No.: 2051604</p>
+        <p data-en="Activity: Real Estate Buying & Selling Brokerage" data-ar="النشاط: وساطة بيع وشراء العقارات">
+        </p>
+        <a href="files/license.pdf" class="download-button">View License</a>
+    </section>
 
-  <!-- Sama Yas -->
-  <div class="property">
-    <h3>Sama Yas</h3>
-    <div class="gallery">
-      <img src="img/sama-1.jpg" />
-      <img src="img/sama-2.jpg" />
-      <img src="img/sama-3.jpg" />
-    </div>
-    <p>Located in the most vibrant and entertainment-packed district of the Emirates, Sama Yas offers an exclusive lifestyle at an exceptional value. The greenest and most sustainable area in the UAE, designed for an elevated quality of life. SeaWorld Abu Dhabi – the region’s largest oceanarium. A world-class water park and climbing walls. Final race of Formula 1. One of the best golf courses in the world. Warner Bros. Theme Park. Starting from $250,000, high ROI, premium living.</p>
-    <a href="brochure.pdf" class="download-button">Download Brochure</a>
-  </div>
+    <!-- Map Section -->
+    <section id="map" class="fade-in">
+        <h2 data-en="Our Location" data-ar="موقعنا">Our Location</h2>
+        <iframe src="https://maps.google.com/maps?q=Dubai%20Internet%20City,%20Al%20Salam%20Tower,%203106&t=&z=13&ie=UTF8&iwloc=&output=embed"></iframe>
+    </section>
 
-  <div class="property-ar" dir="rtl">
-    <h3>سما ياس</h3>
-    <p>تقع في أكثر المناطق حيوية وترفيهًا في الإمارات، وتوفر أسلوب حياة فاخرًا بسعر استثنائي. أكثر المناطق خضرة واستدامة في الدولة، مصممة لرفع جودة الحياة. سي وورلد أبوظبي – أكبر حوض مائي في المنطقة. منتزه مائي وجدران تسلق. نهائي الفورمولا 1. أحد أفضل ملاعب الغولف في العالم. منتزه وورنر براذرز. تبدأ الأسعار من 250,000 دولار، مع عوائد عالية وجودة معيشة متميزة.</p>
-  </div>
-
-  <!-- Athlon Villas -->
-  <div class="property">
-    <h3>Athlon Villas</h3>
-    <div class="gallery">
-      <img src="img/athlon-1.jpg" />
-      <img src="img/athlon-2.jpg" />
-      <img src="img/athlon-3.jpg" />
-      <img src="img/athlon-4.jpg" />
-      <img src="img/athlon-5.jpg" />
-      <img src="img/athlon-6.jpg" />
-      <img src="img/athlon-7.jpg" />
-    </div>
-    <p>Athlon Villas represent one of the most profitable and in-demand investment opportunities in Dubai. Villas in Dubai consistently show the highest price appreciation due to limited availability and growing demand. Spacious, modern villas in one of Dubai’s most desirable locations. High capital appreciation. Designed for premium living, surrounded by green landscapes and top-tier amenities. Close to Dubai’s best attractions, entertainment hubs, and business districts.</p>
-    <a href="brochure.pdf" class="download-button">Download Brochure</a>
-  </div>
-
-  <div class="property-ar" dir="rtl">
-    <h3>فلل أثلون</h3>
-    <p>فلل أثلون تمثل واحدة من أكثر فرص الاستثمار العقاري ربحًا وطلبًا في دبي. تشهد الفلل في دبي أعلى معدل نمو في الأسعار بسبب محدودية توفرها وزيادة الطلب. فيلل فسيحة وحديثة في أكثر المواقع تميزًا. نمو كبير في رأس المال. نمط حياة راقٍ، تحيط بها المساحات الخضراء والمرافق الفاخرة. قريبة من أفضل مناطق الجذب والترفيه والأعمال.</p>
-  </div>
-</section>
-
-<!-- Contact -->
-<section id="contact">
-  <h2>Contact Us</h2>
-  <p>Dubai, Internet City, Al Salam Tower, 3106</p>
-  <p>Phone: <a href="tel:+971045751275">+971 045751275</a></p>
-  <p>License No.: 1177471</p>
-  <p>Trade Name: AVERS REAL ESTATE L.L.C</p>
-  <p>Registration No.: 2051604</p>
-  <p>Activity: Real Estate Buying & Selling Brokerage</p>
-  <a href="license.pdf" class="download-button">View License</a>
-</section>
-
-<!-- Map -->
-<section id="map">
-  <h2>Our Location</h2>
-  <iframe src="https://maps.google.com/maps?q=Dubai%20Internet%20City,%20Al%20Salam%20Tower,%203106&t=&z=13&ie=UTF8&iwloc=&output=embed" width="100%" height="300" frameborder="0" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
-</section>
-
-<!-- Footer -->
-<footer>
-  <p>© 2025 Avers Real Estate LLC</p>
-</footer>
-
-<!-- WhatsApp Button -->
-<a href="https://wa.me/message/HSNLWGUIX5BXE1" class="whatsapp-float"></a>
+    <!-- Footer -->
+    <footer>
+        <p>© 2025 Avers Real Estate LLC</p>
+        <a href="https://wa.me/message/HSNLWGUIX5BXE1" class="whatsapp-float" target="_blank">
+            <img src="img/whatsapp.png" alt="WhatsApp">
+        </a>
+    </footer>
 
 </body>
 </html>
