@@ -1,265 +1,122 @@
-/* Основные стили */
 body {
-  margin: 0;
-  font-family: 'Poppins', sans-serif;
-  background: radial-gradient(circle, #a67c52 0%, #3e2b1f 100%);
-  color: #fff;
-  overflow-x: hidden;
-  scroll-behavior: smooth;
+    font-family: 'Segoe UI', sans-serif;
+    margin: 0;
+    padding: 0;
+    direction: ltr;
+    background: radial-gradient(circle, #b8865b 0%, #4e2e1e 100%);
+    color: #fff;
+    scroll-behavior: smooth;
 }
 
 .container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 5%;
 }
 
-/* Шапка */
 header {
-  position: fixed;
-  top: 0;
-  width: 100%;
-  background-color: rgba(30, 20, 10, 0.7);
-  z-index: 1000;
-  padding: 10px 0;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    background-color: rgba(0, 0, 0, 0.5);
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+    padding: 10px 0;
 }
 
 .logo {
-  font-family: 'Great Vibes', cursive;
-  font-size: 24px;
-  color: #fff;
-  margin-left: 20px;
+    font-family: "Great Vibes", cursive;
+    font-size: 26px;
+    font-weight: bold;
 }
 
 nav ul {
-  display: flex;
-  list-style: none;
-  padding: 0;
-  margin-right: 20px;
+    display: flex;
+    gap: 15px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
 }
 
-nav li {
-  margin: 0 10px;
+nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
 }
 
-nav a, nav button {
-  color: #fff;
-  text-decoration: none;
-  background: none;
-  border: none;
-  font-weight: bold;
-  font-size: 14px;
-  cursor: pointer;
+button {
+    background: transparent;
+    border: none;
+    color: white;
+    font-weight: bold;
 }
 
-/* Welcome Section */
-#welcome {
-  padding: 120px 20px 80px;
-  text-align: center;
+section {
+    padding: 60px 5% 40px;
+    text-align: center;
+    position: relative;
 }
 
-#welcome h2 {
-  font-size: 28px;
-  margin-bottom: 15px;
+h2 {
+    font-size: 28px;
+    margin-bottom: 20px;
+    text-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
 }
 
-#welcome p {
-  max-width: 600px;
-  margin: 0 auto 20px;
-  font-size: 16px;
+.fade-in {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s ease;
 }
 
-.whatsapp-icon {
-  display: inline-block;
-  width: 60px;
-  height: 60px;
-  background: url('img/whatsapp.png') no-repeat center center/contain;
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  z-index: 1000;
-  animation: vibrate 0.4s linear 1;
+.visible {
+    opacity: 1;
+    transform: translateY(0);
 }
 
-@keyframes vibrate {
-  0%, 100% { transform: translateX(0); }
-  20%, 60% { transform: translateX(-5px); }
-  40%, 80% { transform: translateX(5px); }
-}
-
-/* Кнопки */
 button,
-a.download-button,
-a.whatsapp-button {
-  background: none;
-  border: 2px solid rgba(255, 255, 255, 0.6);
-  color: #fff;
-  font-weight: bold;
-  padding: 12px 24px;
-  margin-top: 10px;
-  border-radius: 6px;
-  transition: 0.3s ease;
-  text-decoration: none;
-  display: inline-block;
-  box-shadow: 0 0 12px rgba(255, 215, 0, 0.3);
+a.whatsapp-icon,
+.view-license-btn {
+    background: transparent;
+    border: 2px solid #ffd700;
+    padding: 10px 20px;
+    color: white;
+    font-weight: bold;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(255, 215, 0, 0.2);
+    transition: all 0.3s ease;
 }
 
 button:hover,
-a.download-button:hover,
-a.whatsapp-button:hover {
-  background-color: rgba(255, 215, 0, 0.1);
-  box-shadow: 0 0 16px rgba(255, 215, 0, 0.6);
+a.whatsapp-icon:hover,
+.view-license-btn:hover {
+    box-shadow: 0 0 20px rgba(255, 215, 0, 0.6);
+    transform: translateY(-2px);
 }
 
-/* Блоки */
-section {
-  padding: 60px 20px;
-  text-align: center;
+.whatsapp-icon {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    background: url('img/whatsapp.png') no-repeat center/cover;
+    width: 50px;
+    height: 50px;
+    z-index: 1000;
 }
 
-section img {
-  max-width: 100%;
-  border-radius: 10px;
-  margin-top: 15px;
+.whatsapp-icon.vibrate {
+    animation: vibrate 0.3s linear 3;
 }
 
-/* Блок с фото Ксении */
-.profile {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 40px;
-  flex-wrap: wrap;
+@keyframes vibrate {
+    0% { transform: translateX(0); }
+    25% { transform: translateX(-3px); }
+    50% { transform: translateX(3px); }
+    75% { transform: translateX(-3px); }
+    100% { transform: translateX(0); }
 }
 
-.profile img {
-  width: 280px;
-  border-radius: 0 20px 0 20px;
-}
-
-/* Галерея */
-.gallery {
-  display: flex;
-  overflow-x: auto;
-  gap: 15px;
-  scroll-behavior: smooth;
-  padding: 10px 0;
-}
-
-.gallery img {
-  width: 250px;
-  flex-shrink: 0;
-  border-radius: 12px;
-  transition: transform 0.3s ease;
-}
-
-.gallery img:hover {
-  transform: scale(1.05);
-}
-
-/* Декоративные разделители */
-section:not(:last-child)::after {
-  content: "";
-  display: block;
-  width: 150px;
-  height: 2px;
-  background: linear-gradient(to right, transparent, gold, transparent);
-  margin: 40px auto 0;
-}
-
-/* Карта */
-.map-container iframe {
-  width: 100%;
-  height: 300px;
-  border: none;
-  border-radius: 10px;
-}
-
-/* Footer */
-footer {
-  text-align: center;
-  padding: 40px 20px;
-  font-size: 14px;
-  background-color: transparent;
-}
-
-/* Fade-in анимации */
-.fade-in {
-  opacity: 0;
-  transform: translateY(20px);
-  animation: fadeIn 1.2s ease forwards;
-}
-
-@keyframes fadeIn {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* Тень и анимация заголовков */
-h1, h2 {
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-  animation: fadeInTitle 1.5s ease both;
-}
-
-@keyframes fadeInTitle {
-  0% {
-    opacity: 0;
-    transform: translateY(-20px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* Анимация фото Ксении */
-.profile img {
-  animation: fadeInPhoto 1.5s ease forwards;
-}
-
-@keyframes fadeInPhoto {
-  0% {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* Адаптив */
-@media (max-width: 768px) {
-  nav ul {
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-
-  .profile {
-    flex-direction: column;
-    text-align: center;
-  }
-
-  .profile img {
-    margin-bottom: 20px;
-  }
-
-  section {
-    padding: 40px 15px;
-  }
-
-  .logo {
-    font-size: 20px;
-  }
-
-  button,
-  a.download-button,
-  a.whatsapp-button {
-    font-size: 14px;
-    padding: 10px 18px;
-  }
+img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 12px;
 }
