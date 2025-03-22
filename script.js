@@ -1,35 +1,36 @@
-document.addEventListener("DOMContentLoaded", function () {
-  // Language Toggle
-  document.getElementById("language-toggle").addEventListener("click", () => {
-    const lang = document.documentElement.lang === "ar" ? "en" : "ar";
-    document.documentElement.lang = lang;
-    document.body.dir = lang === "ar" ? "rtl" : "ltr";
+document.addEventListener("DOMContentLoaded", () => {
+  // Языковое переключение
+  const toggleBtn = document.getElementById("language-toggle");
+  let currentLang = "en";
 
-    document.querySelectorAll("[data-en]").forEach(el => {
-      el.textContent = el.getAttribute(`data-${lang}`);
+  toggleBtn.addEventListener("click", () => {
+    currentLang = currentLang === "en" ? "ar" : "en";
+    document.querySelectorAll("[data-en], [data-ar]").forEach((el) => {
+      el.innerHTML = el.getAttribute(`data-${currentLang}`);
     });
+    document.body.dir = currentLang === "ar" ? "rtl" : "ltr";
   });
 
-  // Fade-in on scroll
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
+  // Анимации появления блоков при прокрутке
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
       if (entry.isIntersecting) {
-        entry.target.classList.add("fade-in-visible");
+        entry.target.classList.add("visible");
+        observer.unobserve(entry.target);
       }
     });
-  }, { threshold: 0.15 });
+  }, { threshold: 0.1 });
 
-  document.querySelectorAll(".fade-in").forEach(el => observer.observe(el));
+  document.querySelectorAll(".fade-in").forEach((el) => observer.observe(el));
 
-  // WhatsApp vibration on first scroll
+  // Вибрация кнопки WhatsApp при первом скролле
+  let whatsappBtn = document.querySelector(".whatsapp-icon");
   let vibrated = false;
   window.addEventListener("scroll", () => {
     if (!vibrated) {
-      const btn = document.querySelector(".whatsapp-float");
-      if (btn) {
-        btn.classList.add("vibrate");
-        vibrated = true;
-      }
+      whatsappBtn.classList.add("vibrate");
+      setTimeout(() => whatsappBtn.classList.remove("vibrate"), 1000);
+      vibrated = true;
     }
   });
 });
