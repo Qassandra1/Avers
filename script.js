@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
-  // Переключение языка
+  // Переключение языка EN / AR
   const toggle = document.getElementById("language-toggle");
   let lang = "en";
 
@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  // Анимация появления блоков
+  // Анимации появления секций
   const observer = new IntersectionObserver(entries => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
@@ -25,21 +25,16 @@ document.addEventListener("DOMContentLoaded", () => {
 
   document.querySelectorAll(".fade-in").forEach(el => observer.observe(el));
 
-  // Вибрация WhatsApp при первом скролле
-  let vibrated = false;
+  // Вибрация WhatsApp при КАЖДОМ скролле
   window.addEventListener("scroll", () => {
-    if (!vibrated) {
-      const icon = document.querySelector(".whatsapp-icon");
-      if (icon) {
-        icon.classList.add("vibrate");
-        setTimeout(() => icon.classList.remove("vibrate"), 1000);
-        vibrated = true;
-      }
+    const icon = document.querySelector(".whatsapp-icon");
+    if (icon) {
+      icon.classList.add("vibrate");
+      setTimeout(() => icon.classList.remove("vibrate"), 500);
     }
   });
 
-  // ===== Галерея с задержкой для устранения глюка =====
-
+  // Галерея: устранение дёргания при прокрутке
   const debounce = (fn, delay) => {
     let timeout;
     return function () {
