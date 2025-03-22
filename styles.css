@@ -5,6 +5,7 @@ body {
   padding: 0;
   font-family: 'Segoe UI', sans-serif;
   background: radial-gradient(circle, #d4b189 0%, #3a2514 100%);
+  background-attachment: fixed;
   color: #fff;
   scroll-behavior: smooth;
   overflow-x: hidden;
@@ -29,7 +30,7 @@ header {
 
 .logo {
   font-family: 'Great Vibes', cursive;
-  font-size: 34px; /* увеличено */
+  font-size: 34px;
   font-weight: normal;
   color: #fff;
   flex-grow: 1;
@@ -47,9 +48,9 @@ nav ul {
 nav a, #language-toggle {
   color: #fff;
   font-weight: bold;
-  font-size: 18px; /* увеличено */
+  font-size: 18px;
   text-decoration: none;
-  padding: 10px 16px; /* увеличено */
+  padding: 10px 16px;
   background: none;
   border: none;
   cursor: pointer;
@@ -143,15 +144,15 @@ p {
   opacity: 1;
 }
 
-/* Увеличенные кнопки */
+/* Кнопки — светлые, увеличенные, с тенью и подсветкой */
 .cta-button,
 .download-button,
 .whatsapp-link {
   display: inline-block;
   margin: 25px auto;
-  padding: 24px 40px; /* увеличено */
+  padding: 24px 40px;
   border-radius: 10px;
-  font-size: 20px;    /* увеличено */
+  font-size: 20px;
   font-weight: bold;
   background: rgba(255,255,255,0.12);
   color: white;
@@ -164,9 +165,10 @@ p {
 .download-button:hover,
 .whatsapp-link:hover {
   background-color: rgba(255, 255, 255, 0.25);
-  box-shadow: 0 0 16px rgba(255,255,255,0.3);
+  box-shadow: 0 0 20px rgba(255,255,255,0.4);
 }
 
+/* Контакты */
 .contact-details {
   text-align: left;
   max-width: 700px;
@@ -187,19 +189,13 @@ p {
   border-radius: 10px;
 }
 
-footer {
-  text-align: center;
-  padding: 40px 20px;
-  font-size: 14px;
-  background-color: rgba(0, 0, 0, 0.1);
-}
-
+/* WhatsApp */
 .whatsapp-icon {
   position: fixed;
   right: 20px;
   bottom: 20px;
-  width: 64px;
-  height: 64px;
+  width: 100px; /* увеличено */
+  height: 100px; /* увеличено */
   z-index: 999;
 }
 .whatsapp-icon img {
@@ -216,6 +212,13 @@ footer {
   50% { transform: translate(3px, -3px); }
   75% { transform: translate(-3px, 3px); }
   100% { transform: translate(0); }
+}
+
+footer {
+  text-align: center;
+  padding: 40px 20px;
+  font-size: 14px;
+  background-color: rgba(0, 0, 0, 0.1);
 }
 
 @media (max-width: 1023px) {
