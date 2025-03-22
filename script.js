@@ -1,19 +1,19 @@
 document.addEventListener("DOMContentLoaded", () => {
-  // Language toggle
+  // Переключение языка
   const toggle = document.getElementById("language-toggle");
-  let currentLang = "en";
+  let lang = "en";
 
   toggle.addEventListener("click", () => {
-    currentLang = currentLang === "en" ? "ar" : "en";
-    document.documentElement.lang = currentLang;
-    document.body.dir = currentLang === "ar" ? "rtl" : "ltr";
+    lang = lang === "en" ? "ar" : "en";
+    document.documentElement.lang = lang;
+    document.body.dir = lang === "ar" ? "rtl" : "ltr";
 
     document.querySelectorAll("[data-en]").forEach(el => {
-      el.innerHTML = el.getAttribute(`data-${currentLang}`);
+      el.innerHTML = el.getAttribute(`data-${lang}`);
     });
   });
 
-  // Animate on scroll
+  // Анимация появления блоков
   const observer = new IntersectionObserver(entries => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
@@ -25,7 +25,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   document.querySelectorAll(".fade-in").forEach(el => observer.observe(el));
 
-  // WhatsApp vibration on first scroll
+  // Вибрация WhatsApp при первом скролле
   let vibrated = false;
   window.addEventListener("scroll", () => {
     if (!vibrated) {
@@ -38,13 +38,13 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-  // Active image in gallery on scroll
-  document.querySelectorAll(".gallery-scroll").forEach(gallery => {
+  // Центрируем активное изображение в галерее
+  document.querySelectorAll(".gallery").forEach(gallery => {
     gallery.addEventListener("scroll", () => {
-      const imgs = gallery.querySelectorAll("img");
+      const images = gallery.querySelectorAll("img");
       const center = gallery.scrollLeft + gallery.offsetWidth / 2;
 
-      imgs.forEach(img => {
+      images.forEach(img => {
         const imgCenter = img.offsetLeft + img.offsetWidth / 2;
         const distance = Math.abs(center - imgCenter);
         img.classList.toggle("active", distance < img.offsetWidth / 2);
