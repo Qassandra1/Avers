@@ -144,7 +144,7 @@ p {
   opacity: 1;
 }
 
-/* Кнопки — светлые, увеличенные, с тенью и подсветкой */
+/* Кнопки с тёмной тенью */
 .cta-button,
 .download-button,
 .whatsapp-link {
@@ -157,7 +157,9 @@ p {
   background: rgba(255,255,255,0.12);
   color: white;
   border: none;
-  box-shadow: 0 0 12px rgba(255,255,255,0.2);
+  box-shadow:
+    0 4px 10px rgba(0, 0, 0, 0.6),
+    0 0 10px rgba(0, 0, 0, 0.5);
   transition: all 0.3s ease;
   text-decoration: none;
 }
@@ -165,10 +167,11 @@ p {
 .download-button:hover,
 .whatsapp-link:hover {
   background-color: rgba(255, 255, 255, 0.25);
-  box-shadow: 0 0 20px rgba(255,255,255,0.4);
+  box-shadow:
+    0 6px 16px rgba(0, 0, 0, 0.7),
+    0 0 20px rgba(0, 0, 0, 0.6);
 }
 
-/* Контакты */
 .contact-details {
   text-align: left;
   max-width: 700px;
@@ -189,13 +192,19 @@ p {
   border-radius: 10px;
 }
 
-/* WhatsApp */
+footer {
+  text-align: center;
+  padding: 40px 20px;
+  font-size: 14px;
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
 .whatsapp-icon {
   position: fixed;
   right: 20px;
   bottom: 20px;
-  width: 100px; /* увеличено */
-  height: 100px; /* увеличено */
+  width: 100px;
+  height: 100px;
   z-index: 999;
 }
 .whatsapp-icon img {
@@ -212,13 +221,6 @@ p {
   50% { transform: translate(3px, -3px); }
   75% { transform: translate(-3px, 3px); }
   100% { transform: translate(0); }
-}
-
-footer {
-  text-align: center;
-  padding: 40px 20px;
-  font-size: 14px;
-  background-color: rgba(0, 0, 0, 0.1);
 }
 
 @media (max-width: 1023px) {
