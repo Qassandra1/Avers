@@ -38,17 +38,30 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-  // Центрируем активное изображение в галерее
-  document.querySelectorAll(".gallery").forEach(gallery => {
-    gallery.addEventListener("scroll", () => {
-      const images = gallery.querySelectorAll("img");
-      const center = gallery.scrollLeft + gallery.offsetWidth / 2;
+  // ===== Галерея с задержкой для устранения глюка =====
 
-      images.forEach(img => {
-        const imgCenter = img.offsetLeft + img.offsetWidth / 2;
-        const distance = Math.abs(center - imgCenter);
-        img.classList.toggle("active", distance < img.offsetWidth / 2);
-      });
+  const debounce = (fn, delay) => {
+    let timeout;
+    return function () {
+      clearTimeout(timeout);
+      timeout = setTimeout(() => fn.apply(this, arguments), delay);
+    };
+  };
+
+  const updateGalleryFocus = (gallery) => {
+    const images = gallery.querySelectorAll("img");
+    const center = gallery.scrollLeft + gallery.offsetWidth / 2;
+
+    images.forEach(img => {
+      const imgCenter = img.offsetLeft + img.offsetWidth / 2;
+      const distance = Math.abs(center - imgCenter);
+      img.classList.toggle("active", distance < img.offsetWidth / 2);
     });
+  };
+
+  document.querySelectorAll(".gallery").forEach(gallery => {
+    gallery.addEventListener("scroll", debounce(() => {
+      updateGalleryFocus(gallery);
+    }, 80));
   });
 });
