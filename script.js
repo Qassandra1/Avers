@@ -1,18 +1,19 @@
 document.addEventListener("DOMContentLoaded", () => {
-  // Переключение языка
-  const toggleBtn = document.getElementById("language-toggle");
-  let lang = "en";
+  // Language toggle
+  const toggle = document.getElementById("language-toggle");
+  let currentLang = "en";
 
-  toggleBtn.addEventListener("click", () => {
-    lang = lang === "en" ? "ar" : "en";
-    document.documentElement.lang = lang;
-    document.body.dir = lang === "ar" ? "rtl" : "ltr";
+  toggle.addEventListener("click", () => {
+    currentLang = currentLang === "en" ? "ar" : "en";
+    document.documentElement.lang = currentLang;
+    document.body.dir = currentLang === "ar" ? "rtl" : "ltr";
+
     document.querySelectorAll("[data-en]").forEach(el => {
-      el.innerHTML = el.getAttribute(`data-${lang}`);
+      el.innerHTML = el.getAttribute(`data-${currentLang}`);
     });
   });
 
-  // Анимация появления блоков при скролле
+  // Animate on scroll
   const observer = new IntersectionObserver(entries => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
@@ -20,11 +21,11 @@ document.addEventListener("DOMContentLoaded", () => {
         observer.unobserve(entry.target);
       }
     });
-  }, { threshold: 0.2 });
+  }, { threshold: 0.1 });
 
   document.querySelectorAll(".fade-in").forEach(el => observer.observe(el));
 
-  // Вибрация иконки WhatsApp при первом скролле
+  // WhatsApp vibration on first scroll
   let vibrated = false;
   window.addEventListener("scroll", () => {
     if (!vibrated) {
@@ -37,15 +38,15 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-  // Галерея: активный центр изображения
+  // Active image in gallery on scroll
   document.querySelectorAll(".gallery-scroll").forEach(gallery => {
     gallery.addEventListener("scroll", () => {
-      const images = gallery.querySelectorAll("img");
-      const centerX = gallery.scrollLeft + gallery.offsetWidth / 2;
+      const imgs = gallery.querySelectorAll("img");
+      const center = gallery.scrollLeft + gallery.offsetWidth / 2;
 
-      images.forEach(img => {
+      imgs.forEach(img => {
         const imgCenter = img.offsetLeft + img.offsetWidth / 2;
-        const distance = Math.abs(centerX - imgCenter);
+        const distance = Math.abs(center - imgCenter);
         img.classList.toggle("active", distance < img.offsetWidth / 2);
       });
     });
