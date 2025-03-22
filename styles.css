@@ -1,36 +1,265 @@
-document.addEventListener("DOMContentLoaded", () => {
-  // Языковое переключение
-  const toggleBtn = document.getElementById("language-toggle");
-  let currentLang = "en";
+/* Основные стили */
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background: radial-gradient(circle, #a67c52 0%, #3e2b1f 100%);
+  color: #fff;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
 
-  toggleBtn.addEventListener("click", () => {
-    currentLang = currentLang === "en" ? "ar" : "en";
-    document.querySelectorAll("[data-en], [data-ar]").forEach((el) => {
-      el.innerHTML = el.getAttribute(`data-${currentLang}`);
-    });
-    document.body.dir = currentLang === "ar" ? "rtl" : "ltr";
-  });
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+}
 
-  // Анимации появления блоков при прокрутке
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add("visible");
-        observer.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.1 });
+/* Шапка */
+header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: rgba(30, 20, 10, 0.7);
+  z-index: 1000;
+  padding: 10px 0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
 
-  document.querySelectorAll(".fade-in").forEach((el) => observer.observe(el));
+.logo {
+  font-family: 'Great Vibes', cursive;
+  font-size: 24px;
+  color: #fff;
+  margin-left: 20px;
+}
 
-  // Вибрация кнопки WhatsApp при первом скролле
-  let whatsappBtn = document.querySelector(".whatsapp-icon");
-  let vibrated = false;
-  window.addEventListener("scroll", () => {
-    if (!vibrated) {
-      whatsappBtn.classList.add("vibrate");
-      setTimeout(() => whatsappBtn.classList.remove("vibrate"), 1000);
-      vibrated = true;
-    }
-  });
-});
+nav ul {
+  display: flex;
+  list-style: none;
+  padding: 0;
+  margin-right: 20px;
+}
+
+nav li {
+  margin: 0 10px;
+}
+
+nav a, nav button {
+  color: #fff;
+  text-decoration: none;
+  background: none;
+  border: none;
+  font-weight: bold;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+/* Welcome Section */
+#welcome {
+  padding: 120px 20px 80px;
+  text-align: center;
+}
+
+#welcome h2 {
+  font-size: 28px;
+  margin-bottom: 15px;
+}
+
+#welcome p {
+  max-width: 600px;
+  margin: 0 auto 20px;
+  font-size: 16px;
+}
+
+.whatsapp-icon {
+  display: inline-block;
+  width: 60px;
+  height: 60px;
+  background: url('img/whatsapp.png') no-repeat center center/contain;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 1000;
+  animation: vibrate 0.4s linear 1;
+}
+
+@keyframes vibrate {
+  0%, 100% { transform: translateX(0); }
+  20%, 60% { transform: translateX(-5px); }
+  40%, 80% { transform: translateX(5px); }
+}
+
+/* Кнопки */
+button,
+a.download-button,
+a.whatsapp-button {
+  background: none;
+  border: 2px solid rgba(255, 255, 255, 0.6);
+  color: #fff;
+  font-weight: bold;
+  padding: 12px 24px;
+  margin-top: 10px;
+  border-radius: 6px;
+  transition: 0.3s ease;
+  text-decoration: none;
+  display: inline-block;
+  box-shadow: 0 0 12px rgba(255, 215, 0, 0.3);
+}
+
+button:hover,
+a.download-button:hover,
+a.whatsapp-button:hover {
+  background-color: rgba(255, 215, 0, 0.1);
+  box-shadow: 0 0 16px rgba(255, 215, 0, 0.6);
+}
+
+/* Блоки */
+section {
+  padding: 60px 20px;
+  text-align: center;
+}
+
+section img {
+  max-width: 100%;
+  border-radius: 10px;
+  margin-top: 15px;
+}
+
+/* Блок с фото Ксении */
+.profile {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+.profile img {
+  width: 280px;
+  border-radius: 0 20px 0 20px;
+}
+
+/* Галерея */
+.gallery {
+  display: flex;
+  overflow-x: auto;
+  gap: 15px;
+  scroll-behavior: smooth;
+  padding: 10px 0;
+}
+
+.gallery img {
+  width: 250px;
+  flex-shrink: 0;
+  border-radius: 12px;
+  transition: transform 0.3s ease;
+}
+
+.gallery img:hover {
+  transform: scale(1.05);
+}
+
+/* Декоративные разделители */
+section:not(:last-child)::after {
+  content: "";
+  display: block;
+  width: 150px;
+  height: 2px;
+  background: linear-gradient(to right, transparent, gold, transparent);
+  margin: 40px auto 0;
+}
+
+/* Карта */
+.map-container iframe {
+  width: 100%;
+  height: 300px;
+  border: none;
+  border-radius: 10px;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 40px 20px;
+  font-size: 14px;
+  background-color: transparent;
+}
+
+/* Fade-in анимации */
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeIn 1.2s ease forwards;
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Тень и анимация заголовков */
+h1, h2 {
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  animation: fadeInTitle 1.5s ease both;
+}
+
+@keyframes fadeInTitle {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Анимация фото Ксении */
+.profile img {
+  animation: fadeInPhoto 1.5s ease forwards;
+}
+
+@keyframes fadeInPhoto {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Адаптив */
+@media (max-width: 768px) {
+  nav ul {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .profile {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .profile img {
+    margin-bottom: 20px;
+  }
+
+  section {
+    padding: 40px 15px;
+  }
+
+  .logo {
+    font-size: 20px;
+  }
+
+  button,
+  a.download-button,
+  a.whatsapp-button {
+    font-size: 14px;
+    padding: 10px 18px;
+  }
+}
