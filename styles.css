@@ -1,122 +1,241 @@
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
+
 body {
-    font-family: 'Segoe UI', sans-serif;
-    margin: 0;
-    padding: 0;
-    direction: ltr;
-    background: radial-gradient(circle, #b8865b 0%, #4e2e1e 100%);
-    color: #fff;
-    scroll-behavior: smooth;
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', sans-serif;
+  background: radial-gradient(circle, #d2b48c 0%, #4a2f1c 100%);
+  color: #fff;
+  scroll-behavior: smooth;
 }
 
 .container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 5%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 header {
-    background-color: rgba(0, 0, 0, 0.5);
-    position: fixed;
-    width: 100%;
-    z-index: 1000;
-    padding: 10px 0;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(6px);
+  z-index: 1000;
+  padding: 10px 0;
 }
 
 .logo {
-    font-family: "Great Vibes", cursive;
-    font-size: 26px;
-    font-weight: bold;
+  font-family: 'Great Vibes', cursive;
+  font-size: 26px;
+  color: #fff;
+  text-align: center;
+  flex: 1;
 }
 
 nav ul {
-    display: flex;
-    gap: 15px;
-    list-style: none;
-    padding: 0;
-    margin: 0;
+  list-style: none;
+  display: flex;
+  gap: 15px;
+  margin: 0;
+  padding: 0;
 }
 
-nav a {
-    color: white;
-    text-decoration: none;
-    font-weight: bold;
-}
-
-button {
-    background: transparent;
-    border: none;
-    color: white;
-    font-weight: bold;
+nav a,
+#language-toggle {
+  color: #fff;
+  font-weight: bold;
+  font-size: 14px;
+  text-decoration: none;
+  padding: 6px 10px;
+  background: none;
+  border: none;
+  cursor: pointer;
 }
 
 section {
-    padding: 60px 5% 40px;
-    text-align: center;
-    position: relative;
+  padding: 80px 20px 40px;
+  text-align: center;
 }
 
-h2 {
-    font-size: 28px;
-    margin-bottom: 20px;
-    text-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
+h1, h2, h3 {
+  text-shadow: 1px 1px 4px rgba(0,0,0,0.4);
+  animation: fadeInTitle 1.2s ease both;
+}
+
+p {
+  max-width: 800px;
+  margin: 20px auto;
+  font-size: 16px;
+  line-height: 1.6;
 }
 
 .fade-in {
-    opacity: 0;
-    transform: translateY(30px);
-    transition: all 0.8s ease;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 1s ease;
+}
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
-.visible {
-    opacity: 1;
-    transform: translateY(0);
+/* Welcome button */
+.consultation-btn {
+  display: inline-block;
+  padding: 12px 24px;
+  border-radius: 6px;
+  color: #fff;
+  background: none;
+  border: 2px solid gold;
+  font-weight: bold;
+  margin-top: 20px;
+  box-shadow: 0 0 10px rgba(255,215,0,0.3);
+  transition: all 0.3s ease;
+}
+.consultation-btn:hover {
+  background: gold;
+  color: #000;
+  box-shadow: 0 0 16px gold;
 }
 
-button,
-a.whatsapp-icon,
-.view-license-btn {
-    background: transparent;
-    border: 2px solid #ffd700;
-    padding: 10px 20px;
-    color: white;
-    font-weight: bold;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(255, 215, 0, 0.2);
-    transition: all 0.3s ease;
+/* Profile block */
+.profile {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+  text-align: left;
 }
 
-button:hover,
-a.whatsapp-icon:hover,
-.view-license-btn:hover {
-    box-shadow: 0 0 20px rgba(255, 215, 0, 0.6);
-    transform: translateY(-2px);
+.profile img.angled-photo {
+  width: 260px;
+  border-radius: 0 30px 0 30px;
+  box-shadow: 0 0 12px rgba(0,0,0,0.4);
+  animation: fadeInPhoto 1.4s ease forwards;
 }
 
+.text {
+  max-width: 600px;
+}
+
+/* Services image */
+#services img {
+  max-width: 600px;
+  width: 100%;
+  margin: 20px auto;
+  border-radius: 10px;
+}
+
+/* Gallery scroll */
+.gallery-scroll {
+  display: flex;
+  overflow-x: auto;
+  gap: 15px;
+  padding: 20px 0;
+  scroll-snap-type: x mandatory;
+}
+.gallery-scroll img {
+  flex: 0 0 auto;
+  width: 260px;
+  border-radius: 12px;
+  scroll-snap-align: center;
+  opacity: 0.85;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+.gallery-scroll img.active {
+  transform: scale(1.1);
+  opacity: 1;
+}
+
+/* Buttons */
+.download-button {
+  margin-top: 15px;
+  padding: 10px 20px;
+  font-weight: bold;
+  border-radius: 6px;
+  border: 2px solid gold;
+  background: transparent;
+  color: white;
+  box-shadow: 0 0 10px rgba(255,215,0,0.3);
+  text-decoration: none;
+  transition: 0.3s ease;
+}
+.download-button:hover {
+  background-color: gold;
+  color: #000;
+  box-shadow: 0 0 16px gold;
+}
+
+/* Contact map */
+iframe.map {
+  margin-top: 20px;
+  width: 100%;
+  max-width: 700px;
+  height: 300px;
+  border-radius: 10px;
+  border: none;
+}
+
+/* WhatsApp */
 .whatsapp-icon {
-    position: fixed;
-    right: 20px;
-    bottom: 20px;
-    background: url('img/whatsapp.png') no-repeat center/cover;
-    width: 50px;
-    height: 50px;
-    z-index: 1000;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 52px;
+  height: 52px;
+  background: url('img/whatsapp.png') no-repeat center/contain;
+  z-index: 999;
+}
+.whatsapp-icon.vibrate {
+  animation: vibrate 0.4s ease 1;
 }
 
-.whatsapp-icon.vibrate {
-    animation: vibrate 0.3s linear 3;
+/* Footer */
+footer {
+  padding: 40px 20px;
+  font-size: 14px;
+  background: rgba(0,0,0,0.1);
+  text-align: center;
+}
+
+/* Animations */
+@keyframes fadeInTitle {
+  0% { opacity: 0; transform: translateY(-20px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInPhoto {
+  0% { opacity: 0; transform: translateY(40px); }
+  100% { opacity: 1; transform: translateY(0); }
 }
 
 @keyframes vibrate {
-    0% { transform: translateX(0); }
-    25% { transform: translateX(-3px); }
-    50% { transform: translateX(3px); }
-    75% { transform: translateX(-3px); }
-    100% { transform: translateX(0); }
+  0% { transform: translate(0); }
+  25% { transform: translate(-2px, 2px); }
+  50% { transform: translate(2px, -2px); }
+  75% { transform: translate(-2px, 2px); }
+  100% { transform: translate(0); }
 }
 
-img {
-    max-width: 100%;
-    height: auto;
-    border-radius: 12px;
+/* Responsive */
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+    text-align: center;
+  }
+  .profile {
+    flex-direction: column;
+  }
+  .text {
+    text-align: center;
+  }
+  nav ul {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
 }
